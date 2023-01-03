@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_graph"
+    app:startDestination="@id/planetListFragment">
+
+    <fragment
+        android:id="@+id/planetListFragment"
+        android:name="com.kaankarakas.planetapplication.PlanetListFragment"
+        android:label="fragment_planet_list"
+        tools:layout="@layout/fragment_planet_list" >
+        <action
+            android:id="@+id/action_planetListFragment_to_clickedPlanet"
+            app:destination="@id/clickedPlanet" />
+    </fragment>
+    <fragment
+        android:id="@+id/clickedPlanet"
+        android:name="com.kaankarakas.planetapplication.ClickedPlanet"
+        android:label="fragment_clicked_planet"
+        tools:layout="@layout/fragment_clicked_planet" >
+        <action
+            android:id="@+id/action_clickedPlanet_to_planetListFragment"
+            app:destination="@id/planetListFragment" />
+        <argument
+            android:name="planetName"
+            app:argType="string" />
+        <argument
+            android:name="planetId"
+            app:argType="integer" />
+
+    </fragment>
+</navigation>
